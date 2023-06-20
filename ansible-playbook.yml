@@ -16,5 +16,11 @@
     become : yes
     become_user : root
 
+  - name: stop container
+    command: sudo docker stop insure-me
+    
+  - name: remove container
+    command: sudo docker rm insure-me 
+
   - name: Deploy Docker Container
     command: docker run -itd -p 8082:8081 --name insure-me pruthvi5656/insure-me:1.0
